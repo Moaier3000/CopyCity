@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CopyCity</title>
+        <link rel = "stylesheet" href = "../static/css/CopyCity_wizard_page_css.css">
+        <meta charset="UTF-8">
+        <meta name = "viewport" content = "width-device-width, initial-scale-1.0">  
+    </head>
+
+    <body>
+         <main>
+            <div class="formContainer">
+                <form id="formWizard">
+                    <div class="formStep active">
+
+                        <h2 id="modeTitle">City name</h2>
+
+                        <label class="switch">
+                            <input type="checkbox" id="modeToggle">
+                            <span class="slider round"></span>
+                        </label>
+
+                        <input 
+                            type="text" 
+                            id="dynamicInput"
+                            placeholder="Enter a city name..."
+                        >
+
+                        <div class="buttons">
+                            <button type="button" class="nextButton">Next</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class = "formStep">
+                <h2>Budget and days of stay</h2>
+                <input type = "text" placeholder = "Budget" required> 
+                <input type = "text" placeholder = "Days of stay" required>
+                <div class  = "buttons">
+                    <button type = "button" class = "backButton">Back</button>
+                    <button type = "button" class = "nextButton">Next</button>
+                </div>
+            </div>
+
+            <div class = "formStep">
+                <h2>Interests</h2>
+                <input type = "text" placeholder = "Interests (required)" required> 
+                <div class  = "buttons">
+                    <button type = "button" class = "backButton">Back</button>
+                    <button type = "submit" class = "finishButton">Finish</button>
+                </div>
+            </div>
+
+            <div class = "progressBar">
+                    <div class = "progress" id = "progress"></div>
+                    <div class = "progressStep progressStepButton active" data-step="0"></div>
+                    <div class = "progressStep progressStepButton" data-step="1"></div>
+                    <div class = "progressStep progressStepButton" data-step="2"></div>
+            </div>
+        </main>
+
+    </body>
+    <script src = "../static/js/CopyCity_wizard_page_js.js"></script>
+</html> 

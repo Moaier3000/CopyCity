@@ -1,0 +1,181 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #fff5e3 0%, #f4f6f9 100%);
+}
+.formContainer{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+.formStep{
+    display: none;
+}
+.formStep.active{
+    display: block;
+}
+input{
+display: block; 
+width: 100%;
+margin: 10px 0;
+padding: 12px;
+border: 1px solid #ddd;
+border-radius: 8px;
+}
+input:focus{
+    border-color: #ff9800;
+    outline: none;
+}
+input[type="text"]{
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+} 
+button{
+background: linear-gradient(90deg, #ff9800 0%, #f57c00 100%);
+color: white;
+border: none;
+padding: 10px 16px;
+border-radius: 8px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 500;
+box-shadow:0 2px 8px rgba(255, 152, 0, 0.08);
+transition:background 0.2s box-shadow 0.2s;
+}
+button:hover{
+    background: linear-gradient(90deg, #f57c00 0%, #ff9800 100%);
+    box-shadow: 0 4px 16px rgba(255, 152, 0, 0.12);
+}
+.bins{
+display: flex;
+justify-content: space-between;
+}
+.bins :only-child,
+.bins > :only-child {
+margin-left: auto;
+}
+.progressBar{
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+position: relative;
+}
+.progressBar:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    height: 6px;
+    background:linear-gradient(90deg, #ffe0b2 0%, #fff3e0 100%);
+    border-radius: 3px;
+    z-index: -1;
+}
+.progress{
+position: absolute;
+top: 50%;
+left: 16px;
+height: 6px;
+background: linear-gradient(90deg, #ff9800 0%, #f57c00 100%);
+border-radius: 3px;
+width: 0%;
+z-index: -1;
+transition: width 0.3s;
+}
+.progressStep{
+width: 22px;
+height: 22px;
+background: #ffe0b2;
+border-radius: 50%;
+z-index: 1 ;
+border: 2px solid #fff;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+transition: background 0.2s, box-shadow 0.2s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.progressStep.active{
+background: linear-gradient(135deg, #ff9800 60%, #f57c00 100%);
+box-shadow: 0 4px 16px rgba(255, 152, 0, 0.18);
+}   
+.progressStepButton{
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+.progressStepButton:hover{
+    box-shadow: 0 0 6px #ff980022;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+#formError{
+font-size: 0.98rem;
+color: #f44336;
+margin-bottom: 10px;
+}
+@media (max-width: 500px) {
+.formContainer {
+    max-width: 95vw;
+    padding: 0 5vw;
+}
+input[type="text"]
+{
+    font-size: 1rem;
+}
+}
