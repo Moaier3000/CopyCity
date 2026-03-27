@@ -21,9 +21,9 @@ def recommend():
 @main.route("/map")
 def page2():
     recommendations = session.get('recommendations')
+    print(current_app.config)
     return render_template(
         "CopyCity_map_page_html.html", 
-        # google_maps_api_key=current_app.config["GOOGLE_MAPS_API_KEY"],
-        google_maps_api_key="",
+        google_maps_api_key=current_app.config["GOOGLE_MAPS_KEY"],
         recommendations=recommendations
     )
