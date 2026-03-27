@@ -26,8 +26,9 @@ def get_recommendations(user_data_input):
     They are highly interested in: {user_profile['interests']}.
 
     Suggest 4 less crowded alternative cities that offer a similar vibe to {user_profile['target_city']} but align well with their specific interests and budget.
+    The alternative cities should NOT be capitals or in the top 5 most visited in that country. They should be less known but still offer a rich experience in terms of culture, art, history, and local cuisine.
 
-    Format:
+    Format(FOLLOW STRICTLY):
     [
       {{
         "city": "...",

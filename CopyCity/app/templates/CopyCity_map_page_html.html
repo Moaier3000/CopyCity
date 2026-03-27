@@ -22,11 +22,20 @@
       </gmp-map></div>
         <div class = "descriptions">
             <div class = "cityDescriptionCard">
+                <section>
                 <h1>{{ recommendations['cities'][0]['city'] }}</h1>
-                <span>
+                <span>{{ recommendations['cities'][0]['country'] }}</span>
+                </section>
+                <h3>
                     {{ recommendations['cities'][0]['description'] }}
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-                </span>
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][0]['dailyBudget'] }}
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][0]['similaritiesToYourDesires'] }}
+                </h3>
+
                 <div class = "bookingButton">
                     <button onclick = "">
                        Booking options
@@ -34,10 +43,64 @@
                 </div>
             </div>
             <div class = "cityDescriptionCard">
-                <h1>niggardly</h1>
-                <span>
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-                </span>
+                <section>  
+                <h1>  {{ recommendations['cities'][1]['city'] }} </h1>
+                <span>{{ recommendations['cities'][1]['country'] }}</span>
+                </section>
+                <h3>
+                    {{ recommendations['cities'][1]['description'] }}
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][1]['dailyBudget'] }}
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][1]['similaritiesToYourDesires'] }}
+                </h3>
+                <div class = "bookingButton">
+                    <button onclick = "">
+                       Booking options
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class = "descriptions">
+            <div class = "cityDescriptionCard">
+                <section>
+                <h1>{{ recommendations['cities'][2]['city'] }}</h1>
+                <span>{{ recommendations['cities'][2]['country'] }}</span>
+                </section>
+                <h3>
+                    {{ recommendations['cities'][2]['description'] }}
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][2]['dailyBudget'] }}
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][2]['similaritiesToYourDesires'] }}
+                </h3>
+
+                <div class = "bookingButton">
+                    <button onclick = "">
+                       Booking options
+                    </button>
+                </div>
+            </div>
+
+            <div class = "cityDescriptionCard">
+                <section>  
+                <h1>  {{ recommendations['cities'][3]['city'] }} </h1>
+                <span>{{ recommendations['cities'][3]['country'] }}</span>
+                </section>
+                <h3>
+                    {{ recommendations['cities'][3]['description'] }}
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][3]['dailyBudget'] }}
+                </h3>
+                <h3>
+                    {{ recommendations['cities'][3]['similaritiesToYourDesires'] }}
+                </h3>
                 <div class = "bookingButton">
                     <button onclick = "">
                        Booking options
