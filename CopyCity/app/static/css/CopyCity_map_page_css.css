@@ -9,46 +9,73 @@ header {
     display: flex;
     background: linear-gradient(90deg, #0d3f63 0%, #12141D 75%);
     align-items: center;
+    padding: 10px 20px;
     color: #7be2e4;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.logo{
-    height: 5%;
-    width: 5%;
+.logo {
+    height: 50px;
+    width: 50px;
 }
 
 .siteName {
     font-size: xx-large;
     text-shadow: 5px 5px 2px #000000;
+    margin-left: 12px;
 }
 
+/* ── Map: centered, full width container ── */
+.mapContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2% 0;
+}
+
+gmp-map {
+    height: 450px;        /* fixed height — required or map collapses */
+    width: 75%;
+    box-shadow: 5px 5px 10px #000000;
+    border-radius: 8px;
+}
+
+/* ── Description cards ── */
 .descriptions {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 2%;
+    padding: 2% 3%;
 }
 
 .cityDescriptionCard {
     color: rgb(240, 240, 240);
     background: linear-gradient(90deg, rgb(2, 15, 40, 1) 0%, rgba(2, 15, 40, 0.25) 75%, rgba(2, 15, 40, 0) 100%), url("../placeholder\ img.jpg");
-    background-size: 100vw;
-    padding: 10% 5%;
-    border-radius: 10%;
-    margin: 5% 3%;
+    background-size: cover;
+    padding: 5% 4%;
+    border-radius: 16px;
+    width: 40%;
+    min-width: 280px;
     box-shadow: 3px 4px 6px #000000;
 }
 
-.bookingButton {
-    width: 10%;
+.bookingButton button {
+    margin-top: 12px;
+    padding: 8px 18px;
     background-color: rgb(19, 213, 213);
     box-shadow: 3px 2px 8px #010f1a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
 }
 
-gmp-map {
-    height: 100%;
-    width: 75%;
-    box-shadow: 5px 5px 10px #000000;
+.bookingButton button:hover {
+    background-color: rgb(10, 180, 180);
 }
 
 footer {
@@ -56,14 +83,18 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5% 10%;
+    padding: 3% 10%;
     gap: 7.5%;
+    flex-wrap: wrap;
+    margin-top: 4%;
 }
-  
+
 .navLinks {
     text-decoration: none;
     color: #f5f5f5;
 }
 
-
+.navLinks:hover {
+    color: #8bf3f4;
+}
     
