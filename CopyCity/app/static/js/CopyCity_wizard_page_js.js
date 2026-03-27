@@ -1,110 +1,63 @@
-const steps = document.querySelectorAll(".formStep")
-const nextButton = document.querySelectorAll(".nextButton")
-const backButton = document.querySelectorAll(".backButton")
-const progress = document.querySelector("#progress")
-const progressStep = document.querySelectorAll(".progressStepButton")
-const form = document.querySelector("#formWizard")
-
-let formStepIndex = 0;
-
-function validateStep(stepIndex){
-    const step = steps[stepIndex]
-    const requiredInputs = step.querySelectorAll("input[required]")
+const steps = document.querySelectorAll('.formStep');
+const progressSteps = document.querySelectorAll('.progressStep');
+const progressBar = document.getElementById('progress');
+let current = 0;
+ 
+// ── Validate all required inputs in the current step ──
+function validateStep(stepIndex) {
+    const inputs = steps[stepIndex].querySelectorAll('input[required]');
     let valid = true;
-
-    requiredInputs.forEach(input => {
-        if (!input.value.trim()){
-            input.style.borderColor = "#f44336"
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.reportValidity(); // shows the browser's native "Please fill out this field"
             valid = false;
-        } else {
-            input.style.borderColor = ""
         }
-    })
-
-    let errorDiv = step.querySelector("#formError")
-
-    if (!valid){
-        if(!errorDiv){
-            errorDiv = document.createElement("div")
-            errorDiv.id = "formError"
-            errorDiv.textContent = "Please fill out all required fields."
-            errorDiv.style.color = "#f44336"
-            errorDiv.style.marginBottom = "10px"
-            step.insertBefore(errorDiv, step.firstChild)
-        }
-    } else if (errorDiv){
-        errorDiv.remove()
-    }
-
-    return valid
+    });
+    return valid;
 }
-
-nextButton.forEach(button =>{
-    button.addEventListener("click", () =>{
-        if (validateStep(formStepIndex)) {
-            if (formStepIndex < steps.length - 1) {
-                formStepIndex++
-            }
-            updateFormSteps()
-            updateProgressBar()
-        }
-    })
-})
-
-backButton.forEach(button =>{
-    button.addEventListener("click", () =>{
-        if (formStepIndex > 0) {
-            formStepIndex--
-        }
-        updateFormSteps()
-        updateProgressBar()
-    })
-})
-
-progressStep.forEach(button => {
-    button.addEventListener("click", () => {
-        const step = parseInt(button.getAttribute("data-step"))
-        formStepIndex = step
-        updateFormSteps()
-        updateProgressBar()
-    })
-})
-
-form.addEventListener("submit", function(e) {
-    if (!validateStep(formStepIndex)){
-        e.preventDefault()
-    }
-})
-
-function updateFormSteps(){
-    steps.forEach((step, index) => {
-        step.classList.toggle("active", index === formStepIndex)
-    })
+ 
+function goToStep(n) {
+    if (n < 0 || n >= steps.length) return;
+    // Only validate when moving forward
+    if (n > current && !validateStep(current)) return;
+    steps[current].classList.remove('active');
+    progressSteps[current].classList.remove('active');
+    current = n;
+    steps[current].classList.add('active');
+    progressSteps[current].classList.add('active');
+    // 0% at step 0, 50% at step 1, 100% at step 2
+    progressBar.style.width = (current / (steps.length - 1) * 100) + '%';
 }
-
-function updateProgressBar(){
-    progressStep.forEach((step ,index) => {
-        step.classList.toggle("active", index <= formStepIndex)
-    })
-
-    progress.style.width =
-    (formStepIndex / (progressStep.length - 1)) * 100 + "%"
-}
-
-const toggle = document.getElementById("modeToggle");
-const title = document.getElementById("modeTitle");
-const input = document.getElementById("dynamicInput");
-
-toggle.addEventListener("change", () => {
-    if (toggle.checked) {
-        title.textContent = "City description";
-        input.placeholder = "Enter a vibe (e.g. beach, nightlife, quiet...)";
-    } else {
-        title.textContent = "City name";
-        input.placeholder = "Enter a city name...";
-    }
-
-    input.value = ""; // optional: clear input on switch
+ 
+document.querySelectorAll('.nextButton').forEach(btn => {
+    btn.addEventListener('click', () => goToStep(current + 1));
 });
-
-updateFormSteps()
+ 
+document.querySelectorAll('.backButton').forEach(btn => {
+    btn.addEventListener('click', () => goToStep(current - 1));
+});
+ 
+progressSteps.forEach(dot => {
+    dot.addEventListener('click', () => goToStep(parseInt(dot.dataset.step)));
+});
+ 
+document.getElementById('formWizard').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validateStep(current)) return;
+    alert('Form submitted!');
+});
+ 
+// ── Toggle: switch between City name and Country name ──
+const modeToggle = document.getElementById('modeToggle');
+const modeTitle  = document.getElementById('modeTitle');
+const dynamicInput = document.getElementById('dynamicInput');
+ 
+modeToggle.addEventListener('change', () => {
+    if (modeToggle.checked) {
+        modeTitle.textContent      = 'Going of vibes';
+        dynamicInput.placeholder   = ' Describe the vibe...';
+    } else {
+        modeTitle.textContent      = 'Have a city in mind?';
+        dynamicInput.placeholder   = 'Enter a city name...';
+    }
+});

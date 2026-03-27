@@ -29,13 +29,15 @@ def get_recommendations(user_data_json):
 
     Format:
     [
-      {{
+      {
         "city": "...",
         "country": "...",
         "description": "..."
         "daily budget": "..."
         "similarities to your desires": "..."
-      }}
+        "latitude": "...",
+        "longitude": "..."
+      }
     ]
     """
 

@@ -1,78 +1,15 @@
-<!--<!DOCTYPE html>
-<html>
-    <head>
-        <title>CopyCity</title>
-        <link rel="stylesheet" href="CopyCity_main_page_css.css">
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQhYdNyEpl8Z4aXsph4ryju72VCGIbSsM&libraries=maps,marker&loading=async&callback=initMap"
-            async
-        ></script>
-    </head>
-
-    <body>
-        <header>
-            <a class="logo" href="CopyCity_main_page_html.html">
-                <img class="logo" src="Logo.png">
-            </a>
-        </header>
-
-        <main>
-            <div class="searchbar">
-                <form onsubmit="handleSearch(event)">
-                    <input type="search" placeholder="Search a city..." name="query" id="searchInput">
-                    <button type = "submit">y</button>
-                </form>
-            </div>
-
-            <div class="mapContainer">
-                <gmp-map id="cityMap" center="41.0277,-92.4185" zoom="3" map-id="DEMO_MAP_ID" style="height: 400px">
-                </gmp-map>
-            </div>
-
-            <button onclick="initMap()">Click</button>
-
-            <div class="description">
-                <h1 id="cityTitle">Find your Mirror City</h1>
-                <span id="cityDescription">
-                    Search for a city you love and we'll find its mirror — same soul, less crowd.
-                </span>
-            </div>
-
-            <div class="booking">
-                <button onclick="handleBooking()">
-                    Booking options
-                </button>
-            </div>
-        </main>
-
-        <footer>
-            <a class="navLinks" href="#">azsymchovek@gmail.com</a>
-            <img class="qrCode" src="QR code.png">
-        </footer>
-
-        <script src = "CopyCity_main_page_js.js"></script>
-
-    </body>
-</html>-->
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>CopyCity</title>
         <link rel = "stylesheet" href = "../static/css/CopyCity_map_page_css.css">
-        <style>
-      
-    </style>
-    <script
-     src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&libraries=maps,marker&loading=async&callback=initMap"
-      async
-    ></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{google_maps_api_key}}&libraries=maps,marker&loading=async&callback=initMap" async></script>
     </head>
 
     <body>
         <header>
             <img class = "logo" src = "../static/Logo.png">
+            <span class = "siteName">CopyCity</span>
 
         </header>
 
@@ -83,25 +20,42 @@
             position="41.027748173921374, -92.41852445367961"
             title="Ottumwa, IA"></gmp-advanced-marker>
       </gmp-map>
-            </div>
-            <div class = "description">
+        <div class = "descriptions">
+            <div class = "cityDescriptionCard">
                 <h1>niggardly</h1>
-                </h1>
                 <span>
                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
                 </span>
+                <div class = "bookingButton">
+                    <button onclick = "">
+                       Booking options
+                    </button>
+                </div>
             </div>
-            <div class = "booking">
-                <button onclick = "">
-                    Booking options
-                </button>
+            <div class = "cityDescriptionCard">
+                <h1>niggardly</h1>
+                <span>
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                </span>
+                <div class = "bookingButton">
+                    <button onclick = "">
+                       Booking options
+                    </button>
+                </div>
             </div>
         </main>
 
         <footer>
-            <a class = "navLinks" href = "#">azsymchovek@gmail.com</a>
+            <a class = "navLinks" href = "#">Mr.Tsonev@gmail.com</a>
+            <a class = "navLinks" href = "#">Mr.Hristo@gmail.com</a>
+            <a class = "navLinks" href = "#">088-Mr.Chanman</a>
+            <a class = "navLinks" href = "#">088-Mr.Tsonev</a>
         </footer>
 
+        <script>
+            // Injecting the Flask session data into a global JS variable
+            window.recommendationsData = JSON.parse('{{ recommendations | tojson | safe }}');
+        </script>
         <script src="../static/js/CopyCity_map_page_js.js"></script>
     </body>
 
