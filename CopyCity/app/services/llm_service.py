@@ -44,45 +44,6 @@ def get_recommendations(user_data_input):
     
     print("Prompt sent to LLM:\n", prompt)
 
-    return {
-        "cities": [
-            {
-            "city": "Lisbon",
-            "country": "Portugal",
-            "description": "A charming city with a rich history, stunning architecture, and delicious cuisine.",
-            "dailyBudget": "$120-$150",
-            "similaritiesToYourDesires": "Offers art museums such as the Mosteiro dos Jerónimos; numerous historical sites like Belém Tower. Local seafood is a must-try, reflecting its Portuguese culinary tradition.",
-            "latitude": 38.720145,
-            "longitude": -9.136101
-            },
-            {
-            "city": "Siena",
-            "country": "Italy",
-            "description": "A picturesque Tuscan hill town with medieval streets and Renaissance art.",
-            "dailyBudget": "$80-$120",
-            "similaritiesToYourDesires": "Home to the Siena Cathedral, a stunning example of Italian Gothic architecture. Offers local truffles in dishes which is unique cuisine experience.",
-            "latitude": 43.356891,
-            "longitude": 11.327008
-            },
-            {
-            "city": "Copenhagen",
-            "country": "Denmark",
-            "description": "Known for its architecture and design museums like the Louisiana Museum of Modern Art.",
-            "dailyBudget": "$100-$130",
-            "similaritiesToYourDesires": "The city offers a rich culinary tradition with dishes such as smorrebord. The Freemasons' Church and Rosenborg Castle are historical sites to explore."
-            },
-            {
-            "city": "Bucharest",
-            "country": "Romania",
-            "description": "The capital of Romania, known for the historicity reflected in its architecture.",
-            "dailyBudget": "$70-$100",
-            "similaritiesToYourDesires": "Offers art museums like Muzeul de Arta din Bucurest and Palatul Parlamentului. Culinary delights can be enjoyed at places such as Babesca Biserica.",
-            "latitude": 44.431287,
-            "longitude": 23.059862
-            }
-        ]
-    }
-
     response = client.generate(
         model="phi3",
         prompt=prompt,
