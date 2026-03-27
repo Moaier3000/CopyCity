@@ -16,13 +16,14 @@ def recommend():
     
     session['recommendations'] = result
     
-    return jsonify({"status": "success", "redirect": url_for("main.page2")})
+    return jsonify({"status": "success", "redirect": url_for("main.page2"), "recommendations": result})
 
 @main.route("/map")
 def page2():
-    recommendations = session.get('recommendations', [])
+    recommendations = session.get('recommendations')
     return render_template(
         "CopyCity_map_page_html.html", 
-        google_maps_api_key=current_app.config["GOOGLE_MAPS_API_KEY"],
+        # google_maps_api_key=current_app.config["GOOGLE_MAPS_API_KEY"],
+        google_maps_api_key="",
         recommendations=recommendations
     )

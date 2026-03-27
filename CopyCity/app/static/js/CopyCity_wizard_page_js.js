@@ -40,13 +40,53 @@ document.querySelectorAll('.backButton').forEach(btn => {
 progressSteps.forEach(dot => {
     dot.addEventListener('click', () => goToStep(parseInt(dot.dataset.step)));
 });
- 
-document.getElementById('formWizard').addEventListener('submit', e => {
-    e.preventDefault();
-    if (!validateStep(current)) return;
-    alert('Form submitted!');
+document.getElementById('formWizard').addEventListener('submit', async function(event) {
+    // Prevent the default form submission (which would reload the page)
+    event.preventDefault(); 
+
+    // 1. Extract values from the form inputs
+    const city = document.getElementById('dynamicInput').value;
+    const budget = document.querySelector('input[placeholder="Budget"]').value;
+    const days = document.querySelector('input[placeholder="Days of stay"]').value;
+    const interests = document.querySelector('input[placeholder="Interests (required)"]').value;
+
+    // 2. Format the payload to match what your Python script expects
+    const payload = {
+        city: city,
+        budget: Number(budget), // Converting to numbers for cleaner data
+        days: Number(days),
+        interests: interests
+    };
+
+    console.log("Sending data to backend:", payload);
+
+    // 3. Send the POST request
+    try {
+        const response = await fetch('/recommend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // 4. Parse the JSON returned by Python/Ollama
+        const recommendations = await response.json();
+        
+        console.log("Success! Here are the cities:", recommendations);
+        
+        window.location.href = '/map';
+    } catch (error) {
+        console.error("Failed to fetch recommendations:", error);
+    }
 });
- 
+
+
 // ── Toggle: switch between City name and Country name ──
 const modeToggle = document.getElementById('modeToggle');
 const modeTitle  = document.getElementById('modeTitle');
