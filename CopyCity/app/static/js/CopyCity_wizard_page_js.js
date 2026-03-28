@@ -18,14 +18,31 @@ function validateStep(stepIndex) {
  
 function goToStep(n) {
     if (n < 0 || n >= steps.length) return;
+    
     // Only validate when moving forward
     if (n > current && !validateStep(current)) return;
+    
+    // Hide the current form step
     steps[current].classList.remove('active');
-    progressSteps[current].classList.remove('active');
+    
+    // Update the current index
     current = n;
+    
+    // Show the new form step
     steps[current].classList.add('active');
-    progressSteps[current].classList.add('active');
-    // 0% at step 0, 50% at step 1, 100% at step 2
+    
+    // Update the progress steps (dots)
+    progressSteps.forEach((dot, index) => {
+        if (index <= current) {
+            // Add 'active' class to current and all previous steps
+            dot.classList.add('active');
+        } else {
+            // Remove 'active' class from future steps
+            dot.classList.remove('active');
+        }
+    });
+    
+    // Update the progress bar fill line (0% at step 0, 50% at step 1, 100% at step 2)
     progressBar.style.width = (current / (steps.length - 1) * 100) + '%';
 }
  
@@ -46,7 +63,7 @@ document.getElementById('formWizard').addEventListener('submit', async function(
 
     // 1. Extract values from the form inputs
     const city = document.getElementById('dynamicInput').value;
-    const budget = document.querySelector('input[placeholder="Budget"]').value;
+    const budget = document.querySelector('input[placeholder="ex. 123$"]').value;
     const days = document.querySelector('input[placeholder="Days of stay"]').value;
     const interests = document.querySelector('input[placeholder="Interests (required)"]').value;
 
@@ -87,17 +104,16 @@ document.getElementById('formWizard').addEventListener('submit', async function(
 });
 
 
-// ── Toggle: switch between City name and Country name ──
 const modeToggle = document.getElementById('modeToggle');
 const modeTitle  = document.getElementById('modeTitle');
 const dynamicInput = document.getElementById('dynamicInput');
  
 modeToggle.addEventListener('change', () => {
     if (modeToggle.checked) {
-        modeTitle.textContent      = 'Going of vibes';
-        dynamicInput.placeholder   = ' Describe the vibe...';
-    } else {
         modeTitle.textContent      = 'Have a city in mind?';
-        dynamicInput.placeholder   = 'Enter a city name...';
+        dynamicInput.placeholder   = ' Enter a city name...';
+    } else {
+        modeTitle.textContent      = 'What is the vibe?';
+        dynamicInput.placeholder   = 'Describe the surroundings...';
     }
 });

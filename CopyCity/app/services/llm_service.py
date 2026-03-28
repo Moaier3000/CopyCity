@@ -29,7 +29,7 @@ def get_recommendations(user_data_input):
     The alternative cities should NOT be capitals or in the top 5 most visited in that country. They should be less known but still offer a rich experience in terms of culture, art, history, and local cuisine.
 
     Format(FOLLOW STRICTLY):
-    [
+    "cities":[
       {{
         "city": "...",
         "country": "...",
@@ -44,6 +44,8 @@ def get_recommendations(user_data_input):
     
     print("Prompt sent to LLM:\n", prompt)
 
+
+
     response = client.generate(
         model="phi3",
         prompt=prompt,
@@ -51,20 +53,21 @@ def get_recommendations(user_data_input):
     )
 
     text = response['response']
+    print(text)
 
     try:
         return json.loads(text)
     except Exception as e:
         return {"error": "Invalid JSON from LLM", "raw": text}
     
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Updated test data to mirror the HTML form inputs
-    data = {
-        "city": "Paris",
-        "budget": 1500,
-        "days": 9,
-        "interests": "art, history, local cuisine, and architecture"
-    }
+   # data = {
+    #    "city": "Paris",
+     #   "budget": 1500,
+    #    "days": 9,
+    #    "interests": "art, history, local cuisine, and architecture"
+  #  }
     
     # Passing the dictionary directly (the function now handles both dicts and JSON strings safely)
     results = get_recommendations(data)

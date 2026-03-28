@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, #fffff8 0%, rgb(203, 245, 255), #8bd1ff 100%);    color: #ffffff;
+    background: linear-gradient(180deg, #fffff8 0%, #cbf5ff, #8bd1ff 100%);    color: #ffffff;
     margin: 0;
 }
 
@@ -19,11 +19,18 @@ header {
 
 .siteName {
     font-size: xx-large;
-    text-shadow: 5px 5px 2px #000000;
     margin-left: 12px;
 }
 
-/* ── Map: centered, full width container ── */
+.adventure-title {
+    display: block; 
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+    font-size: 5rem;
+    color: #06080F;
+    margin-top: 2.5%;;
+}
+
 .mapContainer {
     display: flex;
     justify-content: center;
@@ -35,51 +42,87 @@ header {
 gmp-map {
     height: 450px;        /* fixed height — required or map collapses */
     width: 75%;
-    box-shadow: 5px 5px 10px #000000;
+    border: 6px solid #4cbdff;
     border-radius: 8px;
 }
 
-section{
+/* ── Description cards ── */
+.cityDescriptionCard {
+    background-color: rgb(255, 255, 246);
+    padding: 2% 4%;
+    border: 0.5rem solid #4cbdff; /* Kept your blue theme! Change to black if preferred */
+    border-radius: 3rem;
+    width: 30rem;
+    min-height: 36rem;
+    box-shadow: 5px 10px #68afff;
+    
+    /* ADDED: Stack contents vertically and align text to the left */
     display: flex;
-    align-items: center;
-    gap:1.5rem;
+    flex-direction: column;
+    text-align: left; 
 }
 
-/* ── Description cards ── */
+/* ── The Card Header (City & Country) ── */
+section {
+    display: flex;
+    /* ADDED: Pushes City to the left, Country to the right */
+    justify-content: space-between; 
+    /* ADDED: Aligns the bottom of the big h1 text and smaller span text perfectly */
+    align-items: baseline; 
+    width: 100%;
+    
+    /* REMOVED: The full border, border-radius, and gap */
+    /* ADDED: A bottom border to act as the dividing line */
+    border-bottom: 4px solid #4cbdff; 
+    padding-bottom: 1rem; 
+    margin-bottom: 1.5rem; /* Adds space between the line and the description */
+}
+
+h1 {
+    font-size: 4rem;
+    color: #06080F;
+    margin: 0; /* Removes default margin so it sits flat on the line */
+}
+
+
+
+h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: #06080F;
+    /* Assuming your text is in h3 tags, this will ensure it's left-aligned */
+    text-align: left; 
+}
+
+b{
+    font-weight: bold;
+}
+
 .descriptions {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2%;
-    padding: 2% 3%;
-}
-
-.cityDescriptionCard {
-    color: rgb(240, 240, 240);
-    background: linear-gradient(90deg, rgb(2, 15, 40, 1) 0%, rgba(2, 15, 40, 0.25) 75%, rgba(2, 15, 40, 0) 100%), url("../placeholder\ img.jpg");
-    background-size: cover;
-    padding: 5% 4%;
-    border-radius: 16px;
-    width: 40%;
-    min-width: 280px;
-    box-shadow: 3px 4px 6px #000000;
+    gap: 8%;
+    padding: 3% 3%;
 }
 
 .bookingButton button {
-    margin-top: 12px;
     padding: 8px 18px;
-    background-color: rgb(19, 213, 213);
-    box-shadow: 3px 2px 8px #010f1a;
+    background-color: #4cbdff;
+    height: 3.7rem;
+    width: 9.2rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 25%;
     color: #000;
 }
 
 .bookingButton button:hover {
-    background-color: rgb(10, 180, 180);
+    background-color:#5cc3ff;
 }
 
 footer {

@@ -17,6 +17,7 @@
     </header>
 
     <main>
+        <h1, class="adventure-title">Your next adventure..</h1>
         <div class="mapContainer">
             <gmp-map
                 center="{{ recommendations['cities'][0]['latitude'] }}, {{ recommendations['cities'][0]['longitude'] }}"
@@ -30,45 +31,44 @@
 
             </gmp-map>
         </div>
+        <h1>Your CopyCities:</h1>
         <div class="descriptions">
             <div class="cityDescriptionCard">
                 <section>
                     <h1>{{ recommendations['cities'][0]['city'] }}</h1>
-                    <span>{{ recommendations['cities'][0]['country'] }}</span>
                 </section>
                 <h3>
-                    {{ recommendations['cities'][0]['description'] }}
+                    <b>Description:</b> {{ recommendations['cities'][0]['description'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][0]['dailyBudget'] }}
+                    <b>Daily Budget:</b> {{ recommendations['cities'][0]['dailyBudget'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][0]['similaritiesToYourDesires'] }}
+                    <b>Why {{ recommendations['cities'][0]['city'] }}:</b> {{ recommendations['cities'][0]['similaritiesToYourDesires'] }}
                 </h3>
 
                 <div class="bookingButton">
                     <button onclick="">
-                        Booking options
+                        Book now!
                     </button>
                 </div>
             </div>
             <div class="cityDescriptionCard">
                 <section>
-                    <h1> {{ recommendations['cities'][1]['city'] }} </h1>
-                    <span>{{ recommendations['cities'][1]['country'] }}</span>
+                    <h1> {{ recommendations['cities'][1]['city'] }}, {{ recommendations['cities'][1]['country'] }} </h1>
                 </section>
                 <h3>
-                    {{ recommendations['cities'][1]['description'] }}
+                    <b>Description:</b> {{ recommendations['cities'][1]['description'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][1]['dailyBudget'] }}
+                    <b>Daily Budget:</b> {{ recommendations['cities'][1]['dailyBudget'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][1]['similaritiesToYourDesires'] }}
+                    <b>Why {{ recommendations['cities'][1]['city'] }}:</b> {{ recommendations['cities'][1]['similaritiesToYourDesires'] }}
                 </h3>
                 <div class="bookingButton">
                     <button onclick="">
-                        Booking options
+                        Book now!
                     </button>
                 </div>
             </div>
@@ -77,43 +77,41 @@
         <div class="descriptions">
             <div class="cityDescriptionCard">
                 <section>
-                    <h1>{{ recommendations['cities'][2]['city'] }}</h1>
-                    <span>{{ recommendations['cities'][2]['country'] }}</span>
+                    <h1>{{ recommendations['cities'][2]['city'] }}, {{ recommendations['cities'][2]['country'] }}</h1>
                 </section>
                 <h3>
-                    {{ recommendations['cities'][2]['description'] }}
+                    <b>Description:</b> {{ recommendations['cities'][2]['description'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][2]['dailyBudget'] }}
+                    <b>Daily Budget:</b> {{ recommendations['cities'][2]['dailyBudget'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][2]['similaritiesToYourDesires'] }}
+                    <b>Why {{ recommendations['cities'][2]['city'] }}:</b> {{ recommendations['cities'][2]['similaritiesToYourDesires'] }}
                 </h3>
 
                 <div class="bookingButton">
                     <button onclick="">
-                        Booking options
+                        Book now!
                     </button>
                 </div>
             </div>
 
             <div class="cityDescriptionCard">
                 <section>
-                    <h1> {{ recommendations['cities'][3]['city'] }} </h1>
-                    <span>{{ recommendations['cities'][3]['country'] }}</span>
+                    <h1> {{ recommendations['cities'][3]['city'] }}, {{ recommendations['cities'][0]['country'] }} </h1>
                 </section>
                 <h3>
-                    {{ recommendations['cities'][3]['description'] }}
+                    <b>Description:</b> {{ recommendations['cities'][3]['description'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][3]['dailyBudget'] }}
+                    <b>Daily Budget:</b> {{ recommendations['cities'][3]['dailyBudget'] }}
                 </h3>
                 <h3>
-                    {{ recommendations['cities'][3]['similaritiesToYourDesires'] }}
+                    <b>Why {{ recommendations['cities'][3]['city'] }}:</b> {{ recommendations['cities'][3]['similaritiesToYourDesires'] }}
                 </h3>
                 <div class="bookingButton">
                     <button onclick="">
-                        Booking options
+                        Book now!
                     </button>
                 </div>
             </div>

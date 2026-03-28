@@ -5,7 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(180deg, #ffffff 0%, rgb(1, 20, 97, 0.6), #5bb0e8 100%);
+    background: linear-gradient(180deg, #fffff8 0%, rgb(203, 245, 255), #8bd1ff 100%);
 }
 
 /* ── Card: fixed size, never grows or shrinks ── */
@@ -57,7 +57,7 @@ form {
 
 h2 {
     margin: 0 0 10px 0;
-    font-size: 1.1rem;
+    font-size: 2rem;
     color: #333;
 }
 
@@ -73,12 +73,12 @@ input {
 }
 
 input:focus {
-    border-color: #ff9800;
+    border-color: #1a171362;
     outline: none;
 }
 
 button {
-    background: linear-gradient(90deg, #ff9800 0%, #f57c00 100%);
+    background: linear-gradient(90deg, #4cbdff 0%, #4cbdff 100%);
     color: white;
     border: none;
     padding: 10px 16px;
@@ -91,7 +91,7 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(90deg, #f57c00 0%, #ff9800 100%);
+    background: linear-gradient(90deg, #5cc3ff 0%, #5cc3ff 100%);
     box-shadow: 0 4px 16px rgba(255, 152, 0, 0.12);
 }
 
@@ -124,9 +124,9 @@ button:hover {
     top: 50%;
     left: 0;
     right: 0;
-    height: 6px;
+    height: 8px;
     transform: translateY(-50%);
-    background: linear-gradient(90deg, #65f175 0%, #65f175 100%);
+    background: linear-gradient(90deg, #dff9ff 0%, #dff9ff 100%);
     border-radius: 3px;
     z-index: 0;
 }
@@ -136,9 +136,9 @@ button:hover {
     position: absolute;
     top: 50%;
     left: 0;
-    height: 6px;
+    height: 8px;
     transform: translateY(-50%);
-    background: linear-gradient(90deg, #00830f 0%, #00830f 100%);
+    background: linear-gradient(90deg, #149cdb 0%, #149cdb 100%);
     border-radius: 3px;
     width: 0%;
     z-index: 1;
@@ -149,7 +149,7 @@ button:hover {
 .progressStep {
     width: 22px;
     height: 22px;
-    background: rgb(169, 169, 169);
+    background: #dff9ff;
     border-radius: 50%;
     z-index: 2;
     flex-shrink: 0;
@@ -162,7 +162,7 @@ button:hover {
 }
 
 .progressStep.active {
-    background: linear-gradient(135deg, #2e2d2b 60%, #2e2d2b 100%);
+    background: linear-gradient(135deg, #149cdb 60%, #149cdb 100%);
     box-shadow: 0 4px 16px rgba(255, 152, 0, 0.18);
 }
 
@@ -224,7 +224,7 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(30px);
 }
 
 .slider.round {
